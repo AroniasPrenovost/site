@@ -41,8 +41,7 @@ function reorder(obj:any) {
     { name: 'snake', demo: true },
     { name: 'codeWars', demo: false },
     { name: 'colorPaletteGenerator', demo: true },
-    { name: 'typescript-calculator', demo: false },
-    { name: 'me', demo: false }
+    { name: 'typescript-calculator', demo: false }
   ]; 
 
   for (var i = 0; i < order.length; i++) {
