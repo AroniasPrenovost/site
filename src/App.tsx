@@ -11,7 +11,7 @@ import ProjectList from './Components/ProjectList';
 import withListLoading from './Components/withListLoading';
 import Footer from './Components/Footer';
 
-ReactGA.initialize('UA-197845029-1');
+ReactGA.initialize('UA-197845029-2');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 // remove repos w/ < 1 topic
