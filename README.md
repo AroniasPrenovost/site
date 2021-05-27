@@ -8,8 +8,7 @@ In the project directory, you can run:
 
 ### `npm run deploy`
 
-Deploy to GitHub Pages.\
-Make sure the "homepage" field in `package.json` matches your desired URL. 
+Deploy to GitHub Pages. Make sure the "homepage" field in `package.json` matches your desired URL. 
 
 ### `yarn start`
 
