@@ -6,6 +6,11 @@ my personal website was bootstrapped with [Create React App](https://github.com/
 
 In the project directory, you can run:
 
+### `npm run deploy`
+
+Deploy to GitHub Pages.\
+Make sure the "homepage" field in `package.json` matches your desired URL. 
+
 ### `yarn start`
 
 Runs the app in the development mode.\
