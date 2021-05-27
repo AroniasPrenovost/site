@@ -26,7 +26,7 @@ const Terminal = () => {
             <ul>
               <li>&#123;</li>
               <li>email: '<a title='Email' href='mailto:aronprenovostmktg@gmail.com'>aronprenovostmktg@gmail.com</a>',</li>
-              <li>resume: '<a rel='noopener noreferrer' target='_blank' title='Resume' href='site/AronPrenovost-Resume.pdf'>resume.pdf</a>',</li>
+              <li>resume: '<a rel='noopener noreferrer' target='_blank' title='Resume' href='AronPrenovost-Resume.pdf'>resume.pdf</a>',</li>
               <li>linkedin: '<a rel='noopener noreferrer' target='_blank' title='LinkedIn' href='https://www.linkedin.com/in/aronprenovost'>https://www.linkedin.com/in/aronprenovost</a>',</li>
               <li>github: '<a rel='noopener noreferrer' target='_blank' title='GitHub' href='https://github.com/AroniasPrenovost'>https://github.com/AroniasPrenovost</a>'</li>
               <li>&#125;</li>
