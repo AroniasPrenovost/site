@@ -14,7 +14,7 @@ const Terminal = () => {
         </div>
         <div className='statement'>
           <div className='input-statement'>aron.interests</div>
-          <div className='return-statement'>['Software development', 'Web 3.0', 'Guitar', 'Mountain biking']</div>
+          <div className='return-statement'>['Software development', 'Web 3.0', 'Guitar', 'Skateboarding', 'Cycling']</div>
         </div>
         <div className='statement'>
           <div className='input-statement'>aron.skills</div>
@@ -26,7 +26,7 @@ const Terminal = () => {
             <ul>
               <li>&#123;</li>
               <li>email: '<a title='Email' href='mailto:aronprenovostmktg@gmail.com'>aronprenovostmktg@gmail.com</a>',</li>
-              <li>resume: '<a rel='noopener noreferrer' target='_blank' title='Resume' href='https://github.com/AroniasPrenovost'>resume.pdf</a>',</li>
+              <li>resume: '<a rel='noopener noreferrer' target='_blank' title='Resume' href='site/AronPrenovost-Resume.pdf'>resume.pdf</a>',</li>
               <li>linkedin: '<a rel='noopener noreferrer' target='_blank' title='LinkedIn' href='https://www.linkedin.com/in/aronprenovost'>https://www.linkedin.com/in/aronprenovost</a>',</li>
               <li>github: '<a rel='noopener noreferrer' target='_blank' title='GitHub' href='https://github.com/AroniasPrenovost'>https://github.com/AroniasPrenovost</a>'</li>
               <li>&#125;</li>
@@ -35,7 +35,7 @@ const Terminal = () => {
         </div>
         <div className='statement' >
           <div className='input-statement'>aron.education</div>
-          <div className='return-statement'>'B.A., Digital Communication and Media/Multimedia - Washington State University'</div>
+          <div className='return-statement'>'Bachelor of Arts, Strategic Communication - Washington State University'</div>
         </div>
         <div className='statement'>
           <div className='input-statement blink-cursor'>&gt;</div>
