@@ -6,8 +6,9 @@ const Navigation = () => {
         <div className='col col-12'>
           <div className='col-content'>
             <div className='nav'>
-              <a className='underline' href='#projects' title='Projects'>Projects</a>
-              <a className='underline' href='#contact' title='Contact'>Contact</a>
+              <a className='underline' href='#projects' title="Aron's Projects">Projects</a>
+              <a className='underline' href='Aron-Prenovost-Resume.pdf' target='_blank' title="Aron's Resume">Resume</a>
+              <a className='underline' href='#contact' title='Contact Aron'>Contact</a>
             </div>
           </div>
         </div>
