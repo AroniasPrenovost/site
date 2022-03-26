@@ -1,4 +1,4 @@
-## Aron Prenovost - Full Stack Developer 
+## Aron Prenovost - Software Engineer
 
 my personal website was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
