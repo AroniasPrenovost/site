@@ -27,10 +27,10 @@ function clean(obj:any) {
 function reorder(obj:any) {
   let projectList:any = [];
   let order = [
+    { name: 'docker_node_ts_mysql', demo: false },
     { name: 'gameOfLifeJs', demo: true },
-    { name: 'eventually', demo: false },
     { name: 'es6-gulp-boilerplate', demo: false },
-    { name: 'multicontainer-docker', demo: false },
+    // { name: 'multicontainer-docker', demo: false },
     { name: 'Tetris', demo: true },
     { name: 'sorting-algorithm-visualization', demo: true },
     { name: 'goEvents', demo: false },
