@@ -14,7 +14,7 @@ const Terminal = () => {
         </div>
         <div className='statement'>
           <div className='input-statement'>aron.interests</div>
-          <div className='return-statement'>['software development', 'dogs', 'guitar', 'hiking']</div>
+          <div className='return-statement'>['software development', 'guitar', 'hiking', 'dogs']</div>
         </div>
         <div className='statement'>
           <div className='input-statement'>aron.skills</div>
