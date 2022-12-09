@@ -23,15 +23,14 @@ function clean(obj:any) {
   }
 }
 
-// reorder repos
+// reorder repo list
 function reorder(obj:any) {
   let projectList:any = [];
   let order = [
     { name: 'docker_node_ts_mysql', demo: false },
     { name: 'gameOfLifeJs', demo: true },
-    { name: 'es6-gulp-boilerplate', demo: false },
-    // { name: 'multicontainer-docker', demo: false },
     { name: 'Tetris', demo: true },
+    { name: 'es6-gulp-boilerplate', demo: false },
     { name: 'sorting-algorithm-visualization', demo: true },
     { name: 'goEvents', demo: false },
     { name: 'Toggl-Clone', demo: true },
