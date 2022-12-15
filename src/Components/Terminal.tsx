@@ -18,7 +18,7 @@ const Terminal = () => {
         </div>
         <div className='statement'>
           <div className='input-statement'>aron.skills</div>
-          <div className='return-statement'>['HTML', 'CSS/SCSS', 'JavaScript', 'TypeScript', 'Node', 'React', 'PHP', 'SQL', 'Shopify', 'RESTful microservices', 'AWS', 'Web Accessibility', 'Observability']</div>
+          <div className='return-statement'>['HTML', 'CSS/SCSS', 'JavaScript', 'TypeScript', 'Node', 'React', 'PHP', 'SQL', 'Shopify', 'RESTful microservices', 'AWS', 'Accessibility', 'Observability']</div>
         </div>
         <div className='statement'>
           <div className='input-statement'>aron.meta</div>
