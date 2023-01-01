@@ -1,6 +1,6 @@
 ## Aron Prenovost - Software Engineer
 
-my personal website was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+My personal website was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
