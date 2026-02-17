@@ -27,6 +27,8 @@ function clean(obj:any) {
 function reorder(obj:any) {
   let projectList:any = [];
   let order = [
+    { name: 'resgen', demo: false },
+    { name: 'scalp-trader', demo: false },
     { name: 'docker_node_ts_mysql', demo: false },
     { name: 'gameOfLifeJs', demo: true },
     { name: 'Tetris', demo: true },
@@ -41,12 +43,12 @@ function reorder(obj:any) {
     { name: 'codeWars', demo: false },
     { name: 'colorPaletteGenerator', demo: true },
     { name: 'typescript-calculator', demo: false }
-  ]; 
+  ];
 
   for (var i = 0; i < order.length; i++) {
     for (var name in obj) {
       if (obj[name].name === order[i].name) {
-        obj[name].has_demo = order[i].demo; 
+        obj[name].has_demo = order[i].demo;
         projectList.push(obj[name]);
       }
     }
@@ -74,12 +76,12 @@ function App() {
       })
       .then((res) => res.json())
       .then((repos) => {
-        clean(repos); 
+        clean(repos);
         repos = reorder(repos);
         setAppState({ loading: false, repos: repos });
       });
   }, [setAppState]);
-  
+
   return (
     <div>
       <Navigation />
