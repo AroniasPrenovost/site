@@ -23,23 +23,9 @@ function clean(obj:any) {
 function reorder(obj:any) {
   let projectList:any = [];
   let order = [
-    { name: 'palm', demo: false },
     { name: 'resgen', demo: true, demoUrl: 'https://resumai.services' },
     { name: 'docker_node_ts_mysql', demo: false },
-    { name: 'property-manager', demo: false },
-    { name: 'gameOfLifeJs', demo: true },
-    { name: 'Tetris', demo: true },
-    { name: 'es6-gulp-boilerplate', demo: false },
-    { name: 'sorting-algorithm-visualization', demo: true },
-    { name: 'goEvents', demo: false },
-    { name: 'Toggl-Clone', demo: true },
-    { name: 'scroll-progress', demo: true },
     { name: 'chatterbug', demo: false },
-    { name: 'code-loader', demo: true },
-    { name: 'snake', demo: true },
-    { name: 'codeWars', demo: false },
-    { name: 'colorPaletteGenerator', demo: true },
-    { name: 'typescript-calculator', demo: false }
   ];
 
   for (var i = 0; i < order.length; i++) {
@@ -111,6 +97,17 @@ function App() {
         </div>
       </main>
       <ListLoading isLoading={appState.loading} repos={appState.repos} />
+      <div style={{ textAlign: 'center', padding: '10px 0 60px' }}>
+        <a
+          rel='noopener noreferrer'
+          target='_blank'
+          href='https://github.com/AroniasPrenovost'
+          className='project-link secondary'
+          style={{ display: 'inline-block' }}
+        >
+          More on GitHub <i className='fa fa-github'></i>
+        </a>
+      </div>
       <Headline headline='Contact' />
       <Footer />
     </div>
