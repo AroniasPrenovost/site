@@ -23,9 +23,8 @@ function clean(obj:any) {
 function reorder(obj:any) {
   let projectList:any = [];
   let order = [
-    { name: 'resgen', demo: true, demoUrl: 'https://resumai.services' },
+    { name: 'resgen', demo: true, demoUrl: 'https://resumai.services', description: 'AI-powered résumé generator. Paste a job description and your current résumé — it rewrites and tailors your content for the specific role using LLMs.' },
     { name: 'docker_node_ts_mysql', demo: false },
-    { name: 'chatterbug', demo: false },
   ];
 
   for (var i = 0; i < order.length; i++) {
@@ -33,6 +32,7 @@ function reorder(obj:any) {
       if (obj[name].name === order[i].name) {
         obj[name].has_demo = order[i].demo;
         obj[name].demo_url = (order[i] as any).demoUrl || null;
+        if ((order[i] as any).description) obj[name].description = (order[i] as any).description;
         projectList.push(obj[name]);
       }
     }

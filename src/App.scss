@@ -1,24 +1,32 @@
-@import url("https://fonts.googleapis.com/css?family=JetBrains+Mono:wght@100;300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap");
 
 $breakpoint-tablet: 768px;
 
-$background: #f6f9fc;
-$project-background: #fff; 
-$blue: #4867b8; 
-$grey: #525f7f;
+// Design tokens
+$bg: #F5F6F8;
+$surface: #FFFFFF;
+$ink: #10151C;
+$ink-soft: #566072;
+$line: #E4E7EC;
+$accent: #4867b8;
+$accent-soft: #E9EFF6;
 
-$t-head-bg: #e4e3e5;
+// Terminal / editor tokens
+$editor-bg: #0D1117;
+$editor-header: #161B22;
+$syn-key: #7AA2F7;
+$syn-str: #9ECE6A;
+$syn-punct: #6B7488;
+$syn-cy: #7DCFFF;
+$syn-base: #A9B1D6;
+
+// Traffic-light dots (keep real macOS colors)
 $t-head-red: #f96256;
 $t-head-red-border: #f65549;
 $t-head-yellow: #fdbc3d;
 $t-head-yellow-border: #ffb524;
 $t-head-green: #33c948;
 $t-head-green-border: #2dbb41;
-
-$t-window-input: #f7f7f7;
-$t-window-return: #e7d184;
-$t-window-a: #35feff;
-$t-window-a-hover: #00A878;  
 
 html {
   scroll-behavior: smooth;
@@ -28,7 +36,7 @@ html {
 
 body {
   font-family: "JetBrains Mono", monospace;
-  background-color: $background;
+  background-color: $bg;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   font-feature-settings: "pnum";
@@ -51,16 +59,16 @@ a {
 }
 
 h1, p, a {
-  padding: 0 0 0 0; 
-  margin: 0 0 0 0; 
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
 }
 
 h1 {
-  color: $blue; 
+  color: $accent;
 }
 
 h2, p {
-  color: $grey; 
+  color: $ink-soft;
 }
 
 p.copyright {
@@ -74,21 +82,21 @@ p.copyright {
 }
 
 a.nav-item {
-  color: $grey;
+  color: $ink-soft;
   &:hover, :active, :focus {
-    color: $blue; 
+    color: $accent;
   }
 }
 
 .underline {
-  color: #5a5d7a; 
+  color: $ink-soft;
   position: relative;
   margin: 12px;
-   
+
   &:hover,
   &:focus,
   &:active {
-    color: $blue; 
+    color: $accent;
     &:after {
       width: 100%;
     }
@@ -97,10 +105,10 @@ a.nav-item {
   &:after {
     content: '';
     position: absolute;
-    left: 0; 
+    left: 0;
     bottom: -8px;
     height: 4px;
-    background-color: $blue;
+    background-color: $accent;
     width: 0;
     transition: width .25s;
   }
@@ -113,34 +121,33 @@ a.nav-item {
 .underline-fixed:after {
   content: '';
   position: relative;
-  background: $blue;
+  background: $accent;
   bottom: -8px;
   height: 4px;
   display: block;
 }
 
-// .inner-container {
-//   max-width: 1000px;
-//   margin: 0 auto;
-// }
-
 .info-container {
-  // border: solid 1px magenta;
   padding: 15px;
   margin-bottom: 12px;
+
+  p {
+    font-family: 'Inter', sans-serif;
+  }
+
   a {
-    color: $blue;
+    color: $accent;
     font-weight: bold;
 
     &:hover {
-      color: #525f7f;
+      color: $ink-soft;
       font-weight: bold;
     }
   }
 }
 
 .hero-subtitle {
-  color: $grey;
+  color: $ink-soft;
   margin-top: 12px;
   font-size: 0.95em;
   opacity: 0.85;
@@ -148,7 +155,7 @@ a.nav-item {
 
 .project-employer {
   font-size: 0.6em;
-  color: $blue;
+  color: $accent;
   font-weight: 400;
   opacity: 0.8;
   vertical-align: middle;
@@ -158,9 +165,12 @@ a.nav-item {
   padding: 15px;
   margin-bottom: 36px;
 
+  // Zoom overlay (sibling, rendered before this element via React fragment)
+  + .terminal-zoom-overlay { display: none; } // fallback; overlay is its own element
+
   .terminal-header {
-    height: 28px;
-    background-color: $t-head-bg;
+    height: 34px;
+    background-color: $editor-header;
     border-radius: 10px 10px 0 0;
     display: flex;
     justify-content: flex-start;
@@ -171,6 +181,19 @@ a.nav-item {
       height: 12px;
       border-radius: 50%;
       margin-left: 9px;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+
+      &:focus-visible {
+        outline: 2px solid rgba(255, 255, 255, 0.55);
+        outline-offset: 2px;
+      }
     }
 
     .red {
@@ -187,61 +210,175 @@ a.nav-item {
       background-color: $t-head-green;
       border: 1px solid $t-head-green-border;
     }
+
+    .filename-tab {
+      margin-left: 16px;
+      font-size: 0.75em;
+      color: $syn-base;
+      opacity: 0.7;
+      letter-spacing: 0.02em;
+    }
   }
 
   .terminal-window {
-    background-color: $blue;
+    background-color: $editor-bg;
     border-radius: 0 0 4px 4px;
     box-shadow: 0 50px 100px rgba(50,50,93,.15),0 15px 35px rgba(50,50,93,.2),0 5px 15px rgba(0,0,0,.12);
     padding-bottom: 25px;
+    counter-reset: line-count;
+    // Minimize animation
+    max-height: 3000px;
+    overflow: hidden;
+    opacity: 1;
+    transition: max-height 0.4s ease, opacity 0.25s ease, padding-bottom 0.4s ease;
+
+    &.terminal-window--minimized {
+      max-height: 0;
+      opacity: 0;
+      padding-bottom: 0;
+    }
 
     ul {
-      list-style-type: none; 
+      list-style-type: none;
       padding-left: 0;
-      margin-top: 0; 
+      margin-top: 0;
 
-      li { 
-        overflow: hidden; 
+      li {
+        overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
       }
-      
+
       li:nth-child(n+2) {
-        margin-left: 12px; 
+        margin-left: 12px;
       }
-      
+
       li:nth-last-child(1) {
-        margin-left: 0px; 
+        margin-left: 0px;
       }
     }
 
     .statement {
+      counter-increment: line-count;
+      position: relative;
       margin-bottom: 25px;
-      margin-left: 35px;
       margin-right: 35px;
+      padding-left: 52px;
       line-height: 24px;
 
       &:nth-child(1) {
-        padding-top: 35px;  
+        padding-top: 35px;
       }
-      
+
+      &::before {
+        content: counter(line-count);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 38px;
+        text-align: right;
+        color: $syn-punct;
+        opacity: 0.5;
+        font-size: 0.85em;
+        line-height: 24px;
+        user-select: none;
+        padding-top: 1px;
+      }
+
+      &:nth-child(1)::before {
+        top: 35px;
+      }
 
       .input-statement {
-        color: $t-window-input;
+        color: $syn-key;
       }
 
       .return-statement {
-        color: $t-window-return;
+        color: $syn-str;
       }
 
       a {
-        color: $t-window-a;
+        color: $syn-cy;
 
         &:hover {
-          color: $t-window-a-hover;  
+          color: $syn-str;
         }
       }
     }
+  }
+}
+
+// Zoom: fixed overlay + expanded card
+.terminal-zoom-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+  z-index: 199;
+  cursor: pointer;
+}
+
+.about-container--zoomed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(1100px, 92vw);
+  max-height: 85vh;
+  overflow-y: auto;
+  z-index: 200;
+  margin: 0;
+  padding: 0;
+}
+
+// Close state: restore line
+.about-container--closed {
+  padding: 0;
+  margin-bottom: 36px;
+  background: transparent;
+}
+
+.restore-line {
+  background: none;
+  border: none;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9em;
+  color: $syn-key;
+  cursor: pointer;
+  padding: 8px 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+
+  &:hover { color: $syn-cy; }
+
+  &:focus-visible {
+    outline: 2px solid $accent;
+    border-radius: 4px;
+    outline-offset: 2px;
+  }
+}
+
+.restore-cursor {
+  display: inline-block;
+  width: 9px;
+  height: 16px;
+  background: currentColor;
+  margin-left: 3px;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .terminal-window {
+    transition: none;
+  }
+  .terminal-zoom-overlay {
+    backdrop-filter: none;
+  }
+  .restore-cursor {
+    animation: none;
+    opacity: 1;
   }
 }
 
@@ -254,43 +391,42 @@ a.nav-item {
 }
 
 .project {
-  background-color: $project-background;
+  background-color: $surface;
   border-radius: 4px;
-  box-shadow: 0 50px 100px rgba(50,50,93,.05),0 15px 35px rgba(50,50,93,.1),0 5px 15px rgba(0,0,0,.1);
+  border: 1px solid $line;
+  box-shadow: 0 2px 8px rgba(16, 21, 28, .06), 0 1px 2px rgba(16, 21, 28, .04);
   overflow: hidden;
   margin: 15px 15px 36px 15px;
 }
 
 .featured-project {
-  border-left: 4px solid $blue;
+  border-left: 3px solid $accent;
 }
 
 @media only screen and (min-width: 640px) {
   .project {
     display: flex;
   }
-} 
+}
 
 .col-image {
-  flex: 1;  
+  flex: 1;
   background-repeat: no-repeat;
-   
-}  
+}
 
 .col-project {
-  flex: 1;  
+  flex: 1;
   text-align: left;
 
   .project-content {
-    margin:25px; 
+    margin:25px;
   }
 
-  
   h3 {
     font-weight: 500;
     font-size: 1.8em;
     line-height: 38px;
-    color: #525f7f;
+    color: $ink-soft;
     margin-top: 0;
     margin-bottom: 35px;
   }
@@ -298,7 +434,8 @@ a.nav-item {
   p {
     margin-bottom: 30px;
     line-height: 27px;
-    color: #525f7f;
+    color: $ink-soft;
+    font-family: 'Inter', sans-serif;
   }
 
   .project-skills {
@@ -308,13 +445,14 @@ a.nav-item {
 
   span.project-skill {
     border-radius: 4px;
-    border: 2px solid #92eac0;
-    padding: 8px;
+    background-color: $accent-soft;
+    padding: 6px 10px;
     margin-right: 10px;
     margin-bottom: 10px;
-    font-family: Camphor,Open Sans,Segoe UI,sans-serif;
-    font-size: .85em;
-    color: #525f7f;
+    font-family: "JetBrains Mono", monospace;
+    font-size: .8em;
+    color: $accent;
+    font-weight: 500;
   }
 
   .project-links {
@@ -323,16 +461,16 @@ a.nav-item {
     align-items: center;
     flex-wrap: wrap;
   }
-  
+
   .project-link {
     box-sizing: border-box;
-    background-color: $blue; 
-    color: white; /* White text */
-    border: none; 
+    background-color: $accent;
+    color: white;
+    border: none;
 
     margin-right: 20px;
     margin-top: 25px;
-    cursor: pointer;  
+    cursor: pointer;
     white-space: nowrap;
     line-height: 40px;
     padding: 0 14px;
@@ -340,23 +478,23 @@ a.nav-item {
     border-radius: 4px;
     text-decoration: none;
     transition: all .15s ease;
-    font-family: Camphor,Open Sans,Segoe UI,sans-serif;
+    font-family: "JetBrains Mono", monospace;
     font-size: .9em;
     font-weight: 400;
-    
-    &:hover {
-      color: $blue;
-      background-color: $background;
-    }
-  }
-  
-  .project-link.secondary {
-    background: $background;
-    color: $blue;
 
     &:hover {
-      color: $background;
-      background-color: $blue;
+      color: $accent;
+      background-color: $bg;
+    }
+  }
+
+  .project-link.secondary {
+    background: $bg;
+    color: $accent;
+
+    &:hover {
+      color: $bg;
+      background-color: $accent;
     }
   }
 }
@@ -387,7 +525,6 @@ a.nav-item {
   }
 }
 .col {
-  //margin-bottom: 20px;
   padding-right: 15px;
   padding-left: 15px;
   -webkit-box-flex: 1;
@@ -468,93 +605,60 @@ a.nav-item {
   }
 }
 
-.offset-1 {
-  margin-left: 8.333333%;
-}
+.offset-1  { margin-left: 8.333333%; }
+.offset-2  { margin-left: 16.666667%; }
+.offset-3  { margin-left: 25%; }
+.offset-4  { margin-left: 33.333333%; }
+.offset-5  { margin-left: 41.666667%; }
+.offset-6  { margin-left: 50%; }
+.offset-7  { margin-left: 58.333333%; }
+.offset-8  { margin-left: 66.666667%; }
+.offset-9  { margin-left: 75%; }
+.offset-10 { margin-left: 83.333333%; }
+.offset-11 { margin-left: 91.666667%; }
 
-.offset-2 {
-  margin-left: 16.666667%;
-}
-
-.offset-3 {
-  margin-left: 25%;
-}
-
-.offset-4 {
-  margin-left: 33.333333%;
-}
-
-.offset-5 {
-  margin-left: 41.666667%;
-}
-.offset-6 {
-  margin-left: 50%;
-}
-.offset-7 {
-  margin-left: 58.333333%;
-}
-
-.offset-8 {
-  margin-left: 66.666667%;
-}
-
-.offset-9 {
-  margin-left: 75%;
-}
-
-.offset-10 {
-  margin-left: 83.333333%;
-}
-
-.offset-11 {
-  margin-left: 91.666667%;
-}
-
-
-.blink-cursor { 
+.blink-cursor {
   position: relative;
   display: inline-block;
-} 
+}
 
 .blink-cursor::after {
   content: "";
   position: absolute;
   top: 0;
   right: -15px;
-  /* Remove display: inline-block if not required to be on the same line as text etc */
   display: inline-block;
   vertical-align: top;
   width: 10px;
-  /* Set height to the line height of .blink-cursor */
   height: 24px;
-  /* 
-  Animation paramaters:
-  blink = animation-name, 
-  1s = animation-duration, 
-  step-end = animation-timing-function,
-  infinite = animation-iteration-count
-  */
   -webkit-animation: blink 1s step-end infinite;
   animation: blink 1s step-end infinite;
 }
 
 h1.blink-cursor::after {
-  background-color: $blue;
-  top: 10px; 
+  background-color: $accent;
+  top: 10px;
 }
 
 .statement .blink-cursor::after {
-  background-color: $t-window-input;
+  background-color: $syn-key;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blink-cursor::after {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes blink {
-  0% { opacity: 1.0; }
-  50% { opacity: 0.0; }
+  0%   { opacity: 1.0; }
+  50%  { opacity: 0.0; }
   100% { opacity: 1.0; }
 }
 
 @keyframes blink {
-  0% { opacity: 1.0; }
-  50% { opacity: 0.0; }
+  0%   { opacity: 1.0; }
+  50%  { opacity: 0.0; }
   100% { opacity: 1.0; }
 }
