@@ -112,7 +112,7 @@ function App() {
           <div className='col-project'>
             <div className='project-content'>
               <h3>ResumAI</h3>
-              <p>AI-powered resume and job application tool. Generates tailored resume content, cover letters, and application materials using generative AI.</p>
+              <p>AI-powered resume and career content SaaS. Includes a self-sustaining blog engine that runs autonomously — web-search-backed, publishing on a human editorial rhythm with no supervision. Built to evolve over time, not just generate one-off output.</p>
               <div className='project-skills'>
                 <span className='project-skill'>AI</span>
                 <span className='project-skill'>Generative AI</span>
