@@ -14,11 +14,11 @@ const Terminal = () => {
         </div>
         <div className='statement'>
           <div className='input-statement'>aron.interests</div>
-          <div className='return-statement'>['software development', 'guitar', 'hiking', 'dogs']</div>
+          <div className='return-statement'>['building things', 'guitar', 'hiking', 'dogs']</div>
         </div>
         <div className='statement'>
           <div className='input-statement'>aron.skills</div>
-          <div className='return-statement'>['HTML', 'CSS/SCSS', 'JavaScript', 'TypeScript', 'Node', 'React', 'PHP', 'SQL', 'RESTful microservices', 'AWS', 'Accessibility', 'Observability']</div>
+          <div className='return-statement'>['TypeScript', 'React', 'Next.js', 'Node', 'tRPC', 'PostgreSQL', 'pgvector', 'Generative AI', 'RAG / GraphRAG', 'PixelRAG', 'AI Agents', 'AWS', 'BullMQ / Redis', 'Kubernetes', 'Docker']</div>
         </div>
         <div className='statement'>
           <div className='input-statement'>aron.meta</div>

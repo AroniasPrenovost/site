@@ -45,7 +45,22 @@ const formatTopic = (topic: string) => {
     factory: 'Factory',
     observer: 'Observer',
     travis_ci: 'Travis CI',
-    jest: 'Jest'
+    jest: 'Jest',
+    python: 'Python',
+    llm: 'LLM',
+    openai: 'OpenAI',
+    anthropic: 'Anthropic',
+    langchain: 'LangChain',
+    rag: 'RAG',
+    nextjs: 'Next.js',
+    next_js: 'Next.js',
+    postgresql: 'PostgreSQL',
+    pgvector: 'pgvector',
+    ai: 'AI',
+    agents: 'AI Agents',
+    fastapi: 'FastAPI',
+    kubernetes: 'Kubernetes',
+    trpc: 'tRPC'
   };
 
   return obj[topic] ? obj[topic] : topic; 

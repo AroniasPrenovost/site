@@ -42,8 +42,8 @@ body {
 }
 
 nav {
-  margin-top: 10vh;
-  margin-bottom: 10vh;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
 }
 
 a {
@@ -127,7 +127,7 @@ a.nav-item {
 .info-container {
   // border: solid 1px magenta;
   padding: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   a {
     color: $blue;
     font-weight: bold;
@@ -139,9 +139,24 @@ a.nav-item {
   }
 }
 
+.hero-subtitle {
+  color: $grey;
+  margin-top: 12px;
+  font-size: 0.95em;
+  opacity: 0.85;
+}
+
+.project-employer {
+  font-size: 0.6em;
+  color: $blue;
+  font-weight: 400;
+  opacity: 0.8;
+  vertical-align: middle;
+}
+
 .about-container {
   padding: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 36px;
 
   .terminal-header {
     height: 28px;
@@ -243,7 +258,11 @@ a.nav-item {
   border-radius: 4px;
   box-shadow: 0 50px 100px rgba(50,50,93,.05),0 15px 35px rgba(50,50,93,.1),0 5px 15px rgba(0,0,0,.1);
   overflow: hidden;
-  margin: 15px 15px 60px 15px;
+  margin: 15px 15px 36px 15px;
+}
+
+.featured-project {
+  border-left: 4px solid $blue;
 }
 
 @media only screen and (min-width: 640px) {

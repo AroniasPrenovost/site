@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './App.scss';
-import ReactGA from 'react-ga';
 
 import Navigation from './Components/Navigation';
 import Hero from './Components/Hero';
@@ -8,11 +7,8 @@ import About from './Components/About';
 import Terminal from './Components/Terminal';
 import Headline from './Components/Headline';
 import ProjectList from './Components/ProjectList';
-import withListLoading from './Components/withListLoading';
+import withListLoading from './Components/withListLoading.jsx';
 import Footer from './Components/Footer';
-
-ReactGA.initialize('UA-197845029-2');
-ReactGA.pageview(window.location.pathname + window.location.search);
 
 // remove repos w/ < 1 topic
 function clean(obj:any) {
@@ -27,6 +23,7 @@ function clean(obj:any) {
 function reorder(obj:any) {
   let projectList:any = [];
   let order = [
+    { name: 'palm', demo: false },
     { name: 'resgen', demo: false },
     { name: 'scalp-trader', demo: false },
     { name: 'docker_node_ts_mysql', demo: false },
@@ -89,6 +86,46 @@ function App() {
       <About />
       <Terminal />
       <Headline headline='Projects' />
+      <main>
+        <div className='project featured-project'>
+          <div className='col-project'>
+            <div className='project-content'>
+              <h3>BA-PALM <span className='project-employer'>@ Booz Allen Hamilton</span></h3>
+              <p>Open-source enterprise AI platform I lead at Booz Allen Hamilton. Grew from a prompt library into a full agentic platform — RAG pipelines, custom agents, multi-model routing, and a workflow builder. Deployed across 20+ internal teams and delivered to government clients.</p>
+              <div className='project-skills'>
+                <span className='project-skill'>Next.js</span>
+                <span className='project-skill'>TypeScript</span>
+                <span className='project-skill'>tRPC</span>
+                <span className='project-skill'>PostgreSQL</span>
+                <span className='project-skill'>pgvector</span>
+                <span className='project-skill'>RAG / GraphRAG</span>
+                <span className='project-skill'>AWS Bedrock</span>
+                <span className='project-skill'>Kubernetes</span>
+              </div>
+              <div className='project-links'>
+                <a rel='noopener noreferrer' target='_blank' href='https://github.com/boozallen/palm' title='View BA-PALM on GitHub' className='project-link'>View on GitHub <i className='fa fa-github'></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='project featured-project'>
+          <div className='col-project'>
+            <div className='project-content'>
+              <h3>ResumAI</h3>
+              <p>AI-powered resume and job application tool. Generates tailored resume content, cover letters, and application materials using generative AI.</p>
+              <div className='project-skills'>
+                <span className='project-skill'>AI</span>
+                <span className='project-skill'>Generative AI</span>
+                <span className='project-skill'>Next.js</span>
+                <span className='project-skill'>TypeScript</span>
+              </div>
+              <div className='project-links'>
+                <a rel='noopener noreferrer' target='_blank' href='https://resumai.services' title='Visit resumai.services' className='project-link'>Visit Site <i className='fa fa-external-link'></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
       <ListLoading isLoading={appState.loading} repos={appState.repos} />
       <Headline headline='Contact' />
       <Footer />
