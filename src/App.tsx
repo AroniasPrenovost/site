@@ -24,9 +24,9 @@ function reorder(obj:any) {
   let projectList:any = [];
   let order = [
     { name: 'palm', demo: false },
-    { name: 'resgen', demo: false },
-    { name: 'scalp-trader', demo: false },
+    { name: 'resgen', demo: true, demoUrl: 'https://resumai.services' },
     { name: 'docker_node_ts_mysql', demo: false },
+    { name: 'property-manager', demo: false },
     { name: 'gameOfLifeJs', demo: true },
     { name: 'Tetris', demo: true },
     { name: 'es6-gulp-boilerplate', demo: false },
@@ -46,6 +46,7 @@ function reorder(obj:any) {
     for (var name in obj) {
       if (obj[name].name === order[i].name) {
         obj[name].has_demo = order[i].demo;
+        obj[name].demo_url = (order[i] as any).demoUrl || null;
         projectList.push(obj[name]);
       }
     }
@@ -104,23 +105,6 @@ function App() {
               </div>
               <div className='project-links'>
                 <a rel='noopener noreferrer' target='_blank' href='https://github.com/boozallen/palm' title='View BA-PALM on GitHub' className='project-link'>View on GitHub <i className='fa fa-github'></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className='project featured-project'>
-          <div className='col-project'>
-            <div className='project-content'>
-              <h3>ResumAI</h3>
-              <p>AI-powered resume and career content SaaS. Includes a self-sustaining blog engine that runs autonomously — web-search-backed, publishing on a human editorial rhythm with no supervision. Built to evolve over time, not just generate one-off output.</p>
-              <div className='project-skills'>
-                <span className='project-skill'>AI</span>
-                <span className='project-skill'>Generative AI</span>
-                <span className='project-skill'>Next.js</span>
-                <span className='project-skill'>TypeScript</span>
-              </div>
-              <div className='project-links'>
-                <a rel='noopener noreferrer' target='_blank' href='https://resumai.services' title='Visit resumai.services' className='project-link'>Visit Site <i className='fa fa-external-link'></i></a>
               </div>
             </div>
           </div>

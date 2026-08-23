@@ -2,7 +2,9 @@ import React from 'react';
 
 const formatDemoLink = (obj: any) => {
   if (obj.has_demo) {
-    return <a rel='noopener noreferrer' target='_blank' href={'https://aroniasprenovost.github.io/' + obj.full_name.split('/')[1]} title={'Live demo of ' + obj.name} className='project-link'>Live Demo <i className='fa fa-external-link'></i></a>;
+    const url = obj.demo_url || 'https://aroniasprenovost.github.io/' + obj.full_name.split('/')[1];
+    const label = obj.demo_url ? 'View Live' : 'Live Demo';
+    return <a rel='noopener noreferrer' target='_blank' href={url} title={'Live demo of ' + obj.name} className='project-link'>{label} <i className='fa fa-external-link'></i></a>;
   }
 }
 
