@@ -95,20 +95,4 @@ a {
     }
   }
 
-  .json-caret {
-    color: $accent;
-    margin-left: 3px;
-    animation: blink-caret 1.2s step-end infinite;
-  }
-}
-
-@keyframes blink-caret {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .json-caret {
-    animation: none;
-  }
 }

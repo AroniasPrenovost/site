@@ -135,7 +135,7 @@ const Terminal = () => {
           </>
       }
 
-      {row(<>{jp('}')}{animDone ? <span className='json-caret' aria-hidden='true'>█</span> : null}</>)}
+      {row(jp('}'))}
     </div>
   );
 };
