@@ -4,6 +4,8 @@ $bg: #FAF9F7;
 $ink: #1A1A19;
 $ink-soft: #6B6862;
 $accent: #1F4E79;
+$accent-tint: #6E8CB8;
+$accent-soft: #ECF1F6;
 
 html {
   max-width: 900px;
@@ -42,12 +44,18 @@ a {
       background: rgba(236, 233, 228, 0.65);
     }
 
-    .syn-key   { color: $accent; }
+    .syn-key   { color: $accent; font-weight: 500; }
     .syn-str   { color: $ink; }
-    .syn-punct { color: $ink-soft; }
+    .syn-punct { color: $accent-tint; }
     .syn-title { color: $ink-soft; }
-    .syn-name  { color: $ink; font-weight: 500; }
-    .syn-count { color: $accent; }
+    .syn-name  { color: $ink; }
+
+    .syn-count {
+      color: $accent;
+      background: $accent-soft;
+      border-radius: 3px;
+      padding: 0 5px;
+    }
 
     a, .syn-link {
       color: $accent;
