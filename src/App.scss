@@ -28,18 +28,26 @@ a {
 }
 
 .json-block {
-  padding: 8vh 20px 10vh;
+  padding: 8vh 20px 10vh 48px;
   font-size: 0.9em;
 
   .json-line {
+    position: relative;
     line-height: 26px;
     color: $ink;
+    border-radius: 3px;
+    transition: background 0.1s;
+
+    &:hover {
+      background: rgba(236, 233, 228, 0.65);
+    }
 
     .syn-key   { color: $accent; }
     .syn-str   { color: $ink; }
     .syn-punct { color: $ink-soft; }
     .syn-title { color: $ink-soft; }
     .syn-name  { color: $ink; font-weight: 500; }
+    .syn-count { color: $accent; }
 
     a, .syn-link {
       color: $accent;
@@ -51,5 +59,56 @@ a {
         text-decoration-color: #122d49;
       }
     }
+  }
+
+  .tri-btn {
+    position: absolute;
+    left: -36px;
+    top: 0;
+    width: 28px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: $accent;
+    cursor: pointer;
+    padding: 0;
+    font-size: 0.6em;
+    opacity: 0.7;
+    transition: transform 0.2s ease, opacity 0.1s;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.tri-btn--open {
+      transform: rotate(90deg);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $accent;
+      border-radius: 2px;
+      outline-offset: 2px;
+      opacity: 1;
+    }
+  }
+
+  .json-caret {
+    color: $accent;
+    margin-left: 3px;
+    animation: blink-caret 1.2s step-end infinite;
+  }
+}
+
+@keyframes blink-caret {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .json-caret {
+    animation: none;
   }
 }
