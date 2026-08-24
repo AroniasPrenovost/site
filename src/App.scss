@@ -4,7 +4,7 @@ $bg:          #FAF9F7;
 $ink:         #1A1A19;
 $ink-soft:    #6B6862;
 $accent:      #1F4E79;
-$accent-dark: #122d49;
+$accent-dark: #12375C;
 $line:        #ECE9E4;
 
 html {
@@ -28,12 +28,44 @@ a {
   text-decoration: none;
 }
 
+// ─── Fixed contact nav (top-right, aligned with content column) ───────────────
+
+.contact-nav {
+  position: fixed;
+  top: 1.75rem;
+  // Aligns right edge with the content column's right edge on wide viewports;
+  // falls back to 28px viewport padding on narrow screens.
+  right: max(28px, calc(50vw - 340px));
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 100;
+
+  a {
+    display: flex;
+    color: $accent;
+    transition: color 0.12s, transform 0.12s;
+
+    &:hover {
+      color: $accent-dark;
+      transform: scale(1.1);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $accent;
+      border-radius: 3px;
+      outline-offset: 4px;
+    }
+  }
+}
+
 // ─── Page shell ───────────────────────────────────────────────────────────────
 
 .page {
   max-width: 680px;
   margin: 0 auto;
-  padding: 13vh 28px 12vh;
+  // min 80px top padding so content clears the fixed nav
+  padding: max(80px, 13vh) 28px 12vh;
 }
 
 // ─── Name + tagline ───────────────────────────────────────────────────────────
@@ -129,36 +161,17 @@ a {
   }
 }
 
-// ─── Contact footer ───────────────────────────────────────────────────────────
+// ─── Mobile ───────────────────────────────────────────────────────────────────
 
-.contact {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin-top: 5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid $line;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.78rem;
+@media (max-width: 480px) {
+  .contact-nav {
+    top: 1.25rem;
+    gap: 16px;
 
-  a {
-    color: $ink-soft;
-    transition: color 0.12s;
-
-    &:hover {
-      color: $accent;
+    a svg {
+      width: 18px;
+      height: 18px;
     }
-
-    &:focus-visible {
-      outline: 2px solid $accent;
-      border-radius: 2px;
-      outline-offset: 3px;
-    }
-  }
-
-  .sep {
-    color: $line;
-    user-select: none;
   }
 }
 
@@ -167,5 +180,6 @@ a {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     transition: none !important;
+    transform: none !important;
   }
 }
