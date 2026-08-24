@@ -1,13 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap");
 
 $bg: #FAF9F7;
-$ink: #10151C;
-$ink-soft: #566072;
+$ink: #1A1A19;
+$ink-soft: #6B6862;
 $accent: #1F4E79;
 
 html {
-  scroll-behavior: smooth;
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -16,139 +15,49 @@ body {
   background-color: $bg;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-feature-settings: "pnum";
-  font-variant-numeric: proportional-nums;
 }
 
 * {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
-}
-
-nav {
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  padding: 0;
+  margin: 0;
 }
 
 a {
   text-decoration: none;
 }
 
-h1, p, a {
-  padding: 0;
-  margin: 0;
-}
-
-h1 {
-  color: $accent;
-}
-
-h2, p {
-  color: $ink-soft;
-}
-
-p.copyright {
-  font-size: 13px;
-  margin-top: 16px;
-}
-
-.header {
-  display: flex;
-  align-items: baseline;
-}
-
-.underline {
-  color: $ink-soft;
-  position: relative;
-  margin: 12px;
-
-  &:hover,
-  &:focus,
-  &:active {
-    color: $accent;
-    &:after { width: 100%; }
-  }
-
-  &:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    height: 4px;
-    background-color: $accent;
-    width: 0;
-    transition: width .25s;
-  }
-}
-
-.info-container {
-  padding: 15px;
-  margin-bottom: 12px;
-}
-
-.hero-subtitle {
-  color: $ink-soft;
-  margin-top: 12px;
-  font-size: 0.95em;
-  opacity: 0.85;
-}
-
 .json-block {
-  padding: 15px;
-  padding-top: 0;
-  margin-bottom: 48px;
-  font-size: 0.875em;
+  padding: 8vh 20px 10vh;
+  font-size: 0.9em;
 
   .json-line {
-    line-height: 23px;
-    color: rgba(16, 21, 28, 0.85);
+    line-height: 26px;
+    color: $ink;
 
     .syn-key   { color: $accent; }
-    .syn-str   { color: rgba(16, 21, 28, 0.85); }
+    .syn-str   { color: $ink; }
     .syn-punct { color: $ink-soft; }
-    .syn-name  { color: rgba(16, 21, 28, 0.85); font-weight: 500; }
+    .syn-title { color: $ink-soft; }
+    .syn-name  { color: $ink; font-weight: 500; }
+
+    .json-name {
+      display: inline;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 1.75em;
+      font-weight: 600;
+      color: $ink;
+    }
 
     a, .syn-link {
       color: $accent;
       text-decoration: underline;
       text-underline-offset: 3px;
-      text-decoration-color: rgba(31, 78, 121, 0.35);
-      &:hover { text-decoration-color: $accent; }
+      text-decoration-color: rgba(31, 78, 121, 0.4);
+      &:hover {
+        color: #122d49;
+        text-decoration-color: #122d49;
+      }
     }
-  }
-}
-
-.col-content {
-  padding: 15px;
-
-  .nav {
-    text-align: right;
-  }
-}
-
-.flexrow {
-  display: flex;
-  margin-right: -15px;
-  margin-left: -15px;
-  flex-wrap: wrap;
-
-  &.center {
-    justify-content: center;
-    text-align: center;
-  }
-  &.end {
-    justify-content: flex-end;
-  }
-}
-
-.col {
-  padding-right: 15px;
-  padding-left: 15px;
-  flex: 1;
-
-  &.col-12 {
-    max-width: 100%;
-    flex-basis: 100%;
   }
 }
