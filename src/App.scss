@@ -161,189 +161,27 @@ a.nav-item {
   vertical-align: middle;
 }
 
-.about-container {
+.json-block {
   padding: 15px;
-  margin-bottom: 36px;
+  padding-top: 0;
+  margin-bottom: 48px;
+  font-size: 0.875em;
 
-  // Zoom overlay (sibling, rendered before this element via React fragment)
-  + .terminal-zoom-overlay { display: none; } // fallback; overlay is its own element
+  .json-line {
+    line-height: 23px;
+    color: rgba(16, 21, 28, 0.85);
 
-  .terminal-header {
-    height: 34px;
-    background-color: $editor-header;
-    border-radius: 10px 10px 0 0;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    .syn-key   { color: #1F4E79; }
+    .syn-str   { color: rgba(16, 21, 28, 0.85); }
+    .syn-punct { color: $ink-soft; }
 
-    .header-button {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      margin-left: 9px;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      position: relative;
-
-      &:focus-visible {
-        outline: 2px solid rgba(255, 255, 255, 0.55);
-        outline-offset: 2px;
-      }
+    a, .syn-link {
+      color: #1F4E79;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: rgba(31, 78, 121, 0.35);
+      &:hover { text-decoration-color: #1F4E79; }
     }
-
-    .red {
-      background-color: $t-head-red;
-      border: 1px solid $t-head-red-border;
-    }
-
-    .yellow {
-      background-color: $t-head-yellow;
-      border: 1px solid $t-head-yellow-border;
-    }
-
-    .green {
-      background-color: $t-head-green;
-      border: 1px solid $t-head-green-border;
-    }
-
-    .filename-tab {
-      margin-left: 16px;
-      font-size: 0.75em;
-      color: $syn-base;
-      opacity: 0.7;
-      letter-spacing: 0.02em;
-    }
-  }
-
-  .terminal-window {
-    background-color: $editor-bg;
-    border-radius: 0 0 4px 4px;
-    box-shadow: 0 50px 100px rgba(50,50,93,.15),0 15px 35px rgba(50,50,93,.2),0 5px 15px rgba(0,0,0,.12);
-    padding-top: 24px;
-    padding-bottom: 25px;
-    counter-reset: line-count;
-    max-height: 3000px;
-    overflow: hidden;
-    opacity: 1;
-    transition: max-height 0.4s ease, opacity 0.25s ease, padding-top 0.4s ease, padding-bottom 0.4s ease;
-
-    &.terminal-window--minimized {
-      max-height: 0;
-      opacity: 0;
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-
-    .json-line {
-      counter-increment: line-count;
-      position: relative;
-      padding-left: 52px;
-      margin-right: 20px;
-      line-height: 24px;
-      color: $syn-base;
-
-      &::before {
-        content: counter(line-count);
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 38px;
-        text-align: right;
-        color: $syn-punct;
-        opacity: 0.5;
-        font-size: 0.85em;
-        line-height: 24px;
-        user-select: none;
-      }
-
-      .syn-key   { color: $syn-key; }
-      .syn-str   { color: $syn-str; }
-      .syn-punct { color: $syn-punct; }
-
-      a, .syn-link {
-        color: $syn-cy;
-        &:hover { color: $syn-str; }
-      }
-    }
-  }
-}
-
-// Zoom: fixed overlay + expanded card
-.terminal-zoom-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(2px);
-  z-index: 199;
-  cursor: pointer;
-}
-
-.about-container--zoomed {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: min(1100px, 92vw);
-  max-height: 85vh;
-  overflow-y: auto;
-  z-index: 200;
-  margin: 0;
-  padding: 0;
-}
-
-// Close state: restore line
-.about-container--closed {
-  padding: 0;
-  margin-bottom: 36px;
-  background: transparent;
-}
-
-.restore-line {
-  background: none;
-  border: none;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.9em;
-  color: $syn-key;
-  cursor: pointer;
-  padding: 8px 15px;
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
-
-  &:hover { color: $syn-cy; }
-
-  &:focus-visible {
-    outline: 2px solid $accent;
-    border-radius: 4px;
-    outline-offset: 2px;
-  }
-}
-
-.restore-cursor {
-  display: inline-block;
-  width: 9px;
-  height: 16px;
-  background: currentColor;
-  margin-left: 3px;
-  vertical-align: middle;
-  animation: blink 1s step-end infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .terminal-window {
-    transition: none;
-  }
-  .terminal-zoom-overlay {
-    backdrop-filter: none;
-  }
-  .restore-cursor {
-    animation: none;
-    opacity: 1;
   }
 }
 

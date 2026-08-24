@@ -1,7 +1,7 @@
 import React from 'react';
 const Hero = () => {
   return (
-    <div className='info-container'>
+    <div className='info-container' style={{ marginBottom: '60px' }}>
       <div className='header'>
         <h1>Aron Prenovost</h1>
       </div>
