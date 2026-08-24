@@ -41,14 +41,6 @@ a {
     .syn-title { color: $ink-soft; }
     .syn-name  { color: $ink; font-weight: 500; }
 
-    .json-name {
-      display: inline;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 1.75em;
-      font-weight: 600;
-      color: $ink;
-    }
-
     a, .syn-link {
       color: $accent;
       text-decoration: underline;

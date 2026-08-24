@@ -38,7 +38,7 @@ const Terminal = () => {
   return (
     <div className='json-block'>
       {row(1,  jp('{'))}
-      {row(2,  <>{jk('name')}{jp(': ')}<h1 className='json-name'>"Aron Prenovost"</h1>{jp(',')}</>, 2)}
+      {row(2,  <>{jk('name')}{jp(': ')}{jv('Aron Prenovost')}{jp(',')}</>, 2)}
       {row(3,  <>{jk('title')}{jp(': ')}<span className='syn-title'>"Technical Lead, PALM @ Booz Allen Hamilton"</span>{jp(',')}</>, 2)}
       {row(4,  <>{jk('stack')}{jp(': [')}</>, 2)}
       {row(5,  <>{jv('TypeScript')}{jp(',')}</>, 4)}
