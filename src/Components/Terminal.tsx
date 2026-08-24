@@ -4,7 +4,7 @@ const prefersReducedMotion = () =>
   typeof window !== 'undefined' &&
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-const TOTAL_LINES = 27;
+const TOTAL_LINES = 39;
 const LINE_DELAY_MS = 35;
 
 const Terminal = () => {
@@ -33,6 +33,7 @@ const Terminal = () => {
 
   const jk = (v: string) => <span className='syn-key'>"{v}"</span>;
   const jv = (v: string) => <span className='syn-str'>"{v}"</span>;
+  const jn = (v: string) => <span className='syn-name'>"{v}"</span>;
   const jp = (v: string) => <span className='syn-punct'>{v}</span>;
 
   return (
@@ -56,14 +57,26 @@ const Terminal = () => {
       {row(17, <>{jv('hiking')}{jp(',')}</>, 4)}
       {row(18, jv('dogs'), 4)}
       {row(19, jp('],'), 2)}
-      {row(20, <>{jk('meta')}{jp(': {')}</>, 2)}
-      {row(21, <>{jk('location')}{jp(': ')}{jv('Seattle, Washington')}{jp(',')}</>, 4)}
-      {row(22, <>{jk('email')}{jp(': ')}<a className='syn-link' href='mailto:aronprenovostmktg@gmail.com' title='Email Aron'>"aronprenovostmktg@gmail.com"</a>{jp(',')}</>, 4)}
-      {row(23, <>{jk('resume')}{jp(': ')}<a className='syn-link' href='Aron-Prenovost-Resume.pdf' target='_blank' title="Aron's Resume">"resume.pdf"</a>{jp(',')}</>, 4)}
-      {row(24, <>{jk('linkedin')}{jp(': ')}<a className='syn-link' rel='noopener noreferrer' target='_blank' href='https://www.linkedin.com/in/aronprenovost' title="Aron's LinkedIn">"linkedin.com/in/aronprenovost"</a>{jp(',')}</>, 4)}
-      {row(25, <>{jk('github')}{jp(': ')}<a className='syn-link' rel='noopener noreferrer' target='_blank' href='https://github.com/AroniasPrenovost' title="Aron's GitHub">"github.com/AroniasPrenovost"</a></>, 4)}
-      {row(26, jp('}'), 2)}
-      {row(27, jp('}'))}
+      {row(20, <>{jk('projects')}{jp(': [')}</>, 2)}
+      {row(21, jp('{'), 4)}
+      {row(22, <>{jk('name')}{jp(': ')}{jn('PALM')}{jp(',')}</>, 6)}
+      {row(23, <>{jk('description')}{jp(': ')}{jv('Enterprise AI platform at Booz Allen Hamilton — RAG pipelines, custom agents, multi-model routing, workflow builder.')}{jp(',')}</>, 6)}
+      {row(24, <>{jk('link')}{jp(': ')}<a className='syn-link' rel='noopener noreferrer' target='_blank' href='https://github.com/boozallen/palm' title='View PALM on GitHub'>"github.com/boozallen/palm"</a></>, 6)}
+      {row(25, jp('},'), 4)}
+      {row(26, jp('{'), 4)}
+      {row(27, <>{jk('name')}{jp(': ')}{jn('resgen')}{jp(',')}</>, 6)}
+      {row(28, <>{jk('description')}{jp(': ')}{jv('AI résumé generator — paste a job description, get your content rewritten and tailored for the specific role.')}{jp(',')}</>, 6)}
+      {row(29, <>{jk('link')}{jp(': ')}<a className='syn-link' rel='noopener noreferrer' target='_blank' href='https://github.com/AroniasPrenovost/resgen' title='View resgen on GitHub'>"github.com/AroniasPrenovost/resgen"</a></>, 6)}
+      {row(30, jp('}'), 4)}
+      {row(31, jp('],'), 2)}
+      {row(32, <>{jk('meta')}{jp(': {')}</>, 2)}
+      {row(33, <>{jk('location')}{jp(': ')}{jv('Seattle, Washington')}{jp(',')}</>, 4)}
+      {row(34, <>{jk('email')}{jp(': ')}<a className='syn-link' href='mailto:aronprenovostmktg@gmail.com' title='Email Aron'>"aronprenovostmktg@gmail.com"</a>{jp(',')}</>, 4)}
+      {row(35, <>{jk('resume')}{jp(': ')}<a className='syn-link' href='Aron-Prenovost-Resume.pdf' target='_blank' title="Aron's Resume">"resume.pdf"</a>{jp(',')}</>, 4)}
+      {row(36, <>{jk('linkedin')}{jp(': ')}<a className='syn-link' rel='noopener noreferrer' target='_blank' href='https://www.linkedin.com/in/aronprenovost' title="Aron's LinkedIn">"linkedin.com/in/aronprenovost"</a>{jp(',')}</>, 4)}
+      {row(37, <>{jk('github')}{jp(': ')}<a className='syn-link' rel='noopener noreferrer' target='_blank' href='https://github.com/AroniasPrenovost' title="Aron's GitHub">"github.com/AroniasPrenovost"</a></>, 4)}
+      {row(38, jp('}'), 2)}
+      {row(39, jp('}'))}
     </div>
   );
 };
