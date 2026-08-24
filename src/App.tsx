@@ -57,7 +57,7 @@ function App() {
 
           <article className='project'>
             <h2 className='project-name'>ResumAI</h2>
-            <p className='project-desc'>AI resume and career-content SaaS with a self-running blog engine that researches and publishes on its own, web-search-backed.</p>
+            <p className='project-desc'>Resume tailoring SaaS — paste a job description, get a rewritten resume — with an autonomous blog that researches, writes, and publishes without input.</p>
             <a className='project-link' href='https://resumai.services' target='_blank' rel='noopener noreferrer'>resumai.services</a>
           </article>
 
