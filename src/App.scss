@@ -7,6 +7,11 @@ $accent:      #1F4E79;
 $accent-dark: #12375C;
 $line:        #ECE9E4;
 
+:root {
+  --accent: #{$accent};
+  --accent-dark: #{$accent-dark};
+}
+
 html {
   background-color: $bg;
 }
@@ -45,6 +50,10 @@ a {
     display: flex;
     color: $accent;
     transition: color 0.12s, transform 0.12s;
+
+    svg {
+      stroke: currentColor;
+    }
 
     &:hover {
       color: $accent-dark;
