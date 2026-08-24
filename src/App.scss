@@ -1,30 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap");
 
-$bg: #FAF9F7;
-$ink: #1A1A19;
-$ink-soft: #6B6862;
-$accent: #1F4E79;
-$accent-tint: #6E8CB8;
-$accent-soft: #ECF1F6;
-$line: #ECE9E4;
+$bg:          #FAF9F7;
+$ink:         #1A1A19;
+$ink-soft:    #6B6862;
+$accent:      #1F4E79;
+$accent-dark: #122d49;
+$line:        #ECE9E4;
 
-// html fills the full viewport with the warm bg
 html {
   background-color: $bg;
 }
 
-// body is the centered column
 body {
-  max-width: 720px;
-  margin: 0 auto;
-  min-height: 100vh;
-  font-family: "JetBrains Mono", monospace;
+  margin: 0;
   background-color: $bg;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -34,87 +28,144 @@ a {
   text-decoration: none;
 }
 
-.json-block {
-  position: relative;
-  padding: 12vh 20px 12vh 44px;
-  font-size: 0.9em;
+// ─── Page shell ───────────────────────────────────────────────────────────────
 
-  // Hairline hugs the left edge of the content, within the centered column
-  &::before {
-    content: '';
-    position: absolute;
-    left: 32px;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: $line;
-  }
+.page {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 13vh 28px 12vh;
+}
 
-  .json-line {
-    position: relative;
-    line-height: 26px;
+// ─── Name + tagline ───────────────────────────────────────────────────────────
+
+.site-header {
+  h1 {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 2.1rem;
+    font-weight: 500;
     color: $ink;
-
-    .syn-key   { color: $accent; font-weight: 500; }
-    .syn-str   { color: $ink; }
-    .syn-punct { color: $accent-tint; }
-    .syn-title { color: $ink-soft; }
-    .syn-name  { color: $ink; }
-
-    .syn-count {
-      color: $accent;
-      background: $accent-soft;
-      border-radius: 3px;
-      padding: 0 5px;
-    }
-
-    a, .syn-link {
-      color: $accent;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      text-decoration-color: rgba(31, 78, 121, 0.4);
-      transition: color 0.1s, text-decoration-color 0.1s, text-decoration-thickness 0.1s;
-      &:hover {
-        color: #122d49;
-        text-decoration-color: #122d49;
-        text-decoration-thickness: 2px;
-      }
-    }
+    letter-spacing: -0.015em;
+    line-height: 1.2;
   }
 
-  // Only the toggle and its key react on hover — not the full row
-  .json-line:has(.tri-btn:hover) .syn-key {
-    color: #3474B8;
+  .tagline {
+    font-family: "Inter", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: $ink-soft;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+}
+
+// ─── Projects ─────────────────────────────────────────────────────────────────
+
+.projects {
+  margin-top: 4.5rem;
+}
+
+.project {
+  & + & {
+    margin-top: 2.75rem;
   }
 
-  .tri-btn {
-    position: absolute;
-    left: -32px;
-    top: 0;
-    width: 26px;
-    height: 26px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    border: none;
+  .project-name {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 1rem;
+    font-weight: 500;
     color: $accent;
-    cursor: pointer;
-    padding: 0;
-    font-size: 0.6em;
-    opacity: 0.65;
-    transition: transform 0.2s ease, opacity 0.1s;
+    line-height: 1.4;
+  }
 
-    &:hover { opacity: 1; }
+  .project-desc {
+    font-family: "Inter", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: $ink;
+    margin-top: 0.35rem;
+    line-height: 1.7;
+  }
 
-    &.tri-btn--open { transform: rotate(90deg); }
+  .project-link {
+    display: inline-block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    color: $accent;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(31, 78, 121, 0.35);
+    margin-top: 0.45rem;
+    transition: color 0.12s, text-decoration-color 0.12s;
+
+    &:hover {
+      color: $accent-dark;
+      text-decoration-color: $accent-dark;
+    }
 
     &:focus-visible {
       outline: 2px solid $accent;
       border-radius: 2px;
-      outline-offset: 2px;
-      opacity: 1;
+      outline-offset: 3px;
+    }
+  }
+}
+
+.more-link {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  color: $ink-soft;
+  margin-top: 2.25rem;
+  transition: color 0.12s;
+
+  &:hover {
+    color: $accent;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $accent;
+    border-radius: 2px;
+    outline-offset: 3px;
+  }
+}
+
+// ─── Contact footer ───────────────────────────────────────────────────────────
+
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid $line;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+
+  a {
+    color: $ink-soft;
+    transition: color 0.12s;
+
+    &:hover {
+      color: $accent;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $accent;
+      border-radius: 2px;
+      outline-offset: 3px;
     }
   }
 
+  .sep {
+    color: $line;
+    user-select: none;
+  }
+}
+
+// ─── Reduced motion ───────────────────────────────────────────────────────────
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+  }
 }
