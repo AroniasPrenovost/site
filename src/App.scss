@@ -6,9 +6,10 @@ $ink-soft: #6B6862;
 $accent: #1F4E79;
 $accent-tint: #6E8CB8;
 $accent-soft: #ECF1F6;
+$line: #ECE9E4;
 
 html {
-  max-width: 900px;
+  max-width: 760px;
   margin: 0 auto;
 }
 
@@ -30,19 +31,26 @@ a {
 }
 
 .json-block {
-  padding: 8vh 20px 10vh 48px;
+  position: relative;
+  padding: 8vh 20px 10vh 44px;
   font-size: 0.9em;
+
+  // Soft left hairline anchors the object in the page
+  &::before {
+    content: '';
+    position: absolute;
+    left: 32px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: $line;
+  }
 
   .json-line {
     position: relative;
     line-height: 26px;
     color: $ink;
     border-radius: 3px;
-    transition: background 0.1s;
-
-    &:hover {
-      background: rgba(236, 233, 228, 0.65);
-    }
 
     .syn-key   { color: $accent; font-weight: 500; }
     .syn-str   { color: $ink; }
@@ -62,18 +70,25 @@ a {
       text-decoration: underline;
       text-underline-offset: 3px;
       text-decoration-color: rgba(31, 78, 121, 0.4);
+      transition: color 0.1s, text-decoration-color 0.1s, text-decoration-thickness 0.1s;
       &:hover {
         color: #122d49;
         text-decoration-color: #122d49;
+        text-decoration-thickness: 2px;
       }
     }
   }
 
+  // Only the triangle (and its sibling key) react to hover — not the full row
+  .json-line:has(.tri-btn:hover) .syn-key {
+    color: #3474B8;
+  }
+
   .tri-btn {
     position: absolute;
-    left: -36px;
+    left: -32px;
     top: 0;
-    width: 28px;
+    width: 26px;
     height: 26px;
     display: flex;
     align-items: center;
@@ -84,7 +99,7 @@ a {
     cursor: pointer;
     padding: 0;
     font-size: 0.6em;
-    opacity: 0.7;
+    opacity: 0.65;
     transition: transform 0.2s ease, opacity 0.1s;
 
     &:hover {
