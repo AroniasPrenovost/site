@@ -29,13 +29,13 @@ function App() {
   return (
     <>
       <nav className='contact-nav' aria-label='Contact'>
-        <a href='mailto:aronprenovostmktg@gmail.com' aria-label='Email'>
+        <a href='mailto:aronprenovostmktg@gmail.com' aria-label='Email' title='Email Aron'>
           <MailIcon />
         </a>
-        <a href='https://www.linkedin.com/in/aronprenovost' target='_blank' rel='noopener noreferrer' aria-label='LinkedIn'>
+        <a href='https://www.linkedin.com/in/aronprenovost' target='_blank' rel='noopener noreferrer' aria-label='LinkedIn' title='LinkedIn'>
           <LinkedInIcon />
         </a>
-        <a href='Aron-Prenovost-Resume.pdf' target='_blank' aria-label='Resume'>
+        <a href='Aron-Prenovost-Resume.pdf' target='_blank' aria-label='Resume' title='Resume'>
           <FileTextIcon />
         </a>
       </nav>
@@ -52,22 +52,22 @@ function App() {
           <article className='project'>
             <h2 className='project-name'>PALM</h2>
             <p className='project-desc'>Enterprise AI platform I lead at Booz Allen, now open source. RAG pipelines, custom agents, multi-model routing, and a workflow builder. Used across 20+ teams.</p>
-            <a className='project-link' href='https://github.com/boozallen/palm' target='_blank' rel='noopener noreferrer'>github.com/boozallen/palm</a>
+            <a className='project-link' href='https://github.com/boozallen/palm' target='_blank' rel='noopener noreferrer' title='PALM on GitHub'>github.com/boozallen/palm</a>
           </article>
 
           <article className='project'>
             <h2 className='project-name'>ResumAI</h2>
             <p className='project-desc'>Resume tailoring SaaS with a self-running blog — calibrated author personas that slowly evolve, publishing SEO-researched career content on a human rhythm.</p>
-            <a className='project-link' href='https://resumai.services' target='_blank' rel='noopener noreferrer'>resumai.services</a>
+            <a className='project-link' href='https://resumai.services' target='_blank' rel='noopener noreferrer' title='ResumAI'>resumai.services</a>
           </article>
 
           <article className='project'>
             <h2 className='project-name'>docker-node-ts-mysql</h2>
             <p className='project-desc'>A clean, containerized REST API reference: Node, TypeScript, MySQL, and Redis in Docker.</p>
-            <a className='project-link' href='https://github.com/AroniasPrenovost/docker_node_ts_mysql' target='_blank' rel='noopener noreferrer'>github.com/AroniasPrenovost/docker_node_ts_mysql</a>
+            <a className='project-link' href='https://github.com/AroniasPrenovost/docker_node_ts_mysql' target='_blank' rel='noopener noreferrer' title='docker-node-ts-mysql on GitHub'>github.com/AroniasPrenovost/docker_node_ts_mysql</a>
           </article>
 
-          <a className='more-link' href='https://github.com/AroniasPrenovost' target='_blank' rel='noopener noreferrer'>more on GitHub →</a>
+          <a className='more-link' href='https://github.com/AroniasPrenovost' target='_blank' rel='noopener noreferrer' title='More projects on GitHub'>more on GitHub →</a>
 
         </section>
 

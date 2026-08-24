@@ -52,12 +52,17 @@ a {
     transition: color 0.12s, transform 0.12s;
 
     svg {
-      stroke: currentColor;
+      stroke: $accent;
+      fill: none;
     }
 
     &:hover {
       color: $accent-dark;
       transform: scale(1.1);
+
+      svg {
+        stroke: $accent-dark;
+      }
     }
 
     &:focus-visible {
