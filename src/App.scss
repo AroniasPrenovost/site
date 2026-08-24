@@ -8,12 +8,16 @@ $accent-tint: #6E8CB8;
 $accent-soft: #ECF1F6;
 $line: #ECE9E4;
 
+// html fills the full viewport with the warm bg
 html {
-  max-width: 760px;
-  margin: 0 auto;
+  background-color: $bg;
 }
 
+// body is the centered column
 body {
+  max-width: 720px;
+  margin: 0 auto;
+  min-height: 100vh;
   font-family: "JetBrains Mono", monospace;
   background-color: $bg;
   -webkit-font-smoothing: antialiased;
@@ -32,10 +36,10 @@ a {
 
 .json-block {
   position: relative;
-  padding: 8vh 20px 10vh 44px;
+  padding: 12vh 20px 12vh 44px;
   font-size: 0.9em;
 
-  // Soft left hairline anchors the object in the page
+  // Hairline hugs the left edge of the content, within the centered column
   &::before {
     content: '';
     position: absolute;
@@ -50,7 +54,6 @@ a {
     position: relative;
     line-height: 26px;
     color: $ink;
-    border-radius: 3px;
 
     .syn-key   { color: $accent; font-weight: 500; }
     .syn-str   { color: $ink; }
@@ -79,7 +82,7 @@ a {
     }
   }
 
-  // Only the triangle (and its sibling key) react to hover — not the full row
+  // Only the toggle and its key react on hover — not the full row
   .json-line:has(.tri-btn:hover) .syn-key {
     color: #3474B8;
   }
@@ -102,13 +105,9 @@ a {
     opacity: 0.65;
     transition: transform 0.2s ease, opacity 0.1s;
 
-    &:hover {
-      opacity: 1;
-    }
+    &:hover { opacity: 1; }
 
-    &.tri-btn--open {
-      transform: rotate(90deg);
-    }
+    &.tri-btn--open { transform: rotate(90deg); }
 
     &:focus-visible {
       outline: 2px solid $accent;

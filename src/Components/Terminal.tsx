@@ -4,8 +4,8 @@ const prefersReducedMotion = () =>
   typeof window !== 'undefined' &&
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// Lines in default state: all sections expanded
-const INITIAL_LINES = 41;
+// Lines in default state: projects expanded, stack/interests/meta collapsed
+const INITIAL_LINES = 19;
 const LINE_DELAY_MS = 35;
 
 type Key = 'stack' | 'interests' | 'projects' | 'meta';
@@ -19,7 +19,7 @@ const L3 = 4.5;  // nested object keys
 const Terminal = () => {
   const reduced = prefersReducedMotion();
   const [collapsed, setCollapsed] = useState<Collapsed>({
-    stack: false, interests: false, projects: false, meta: false,
+    stack: true, interests: true, projects: false, meta: true,
   });
   const [visibleLines, setVisibleLines] = useState(reduced ? INITIAL_LINES : 0);
   const animDone = visibleLines >= INITIAL_LINES;
@@ -117,9 +117,9 @@ const Terminal = () => {
             {row(<>{jk('link')}{jp(': ')}<a className='syn-link' rel='noopener noreferrer' target='_blank' href='https://github.com/boozallen/palm'>"github.com/boozallen/palm"</a></>, L3)}
             {row(jp('},'), L2)}
             {row(jp('{'), L2)}
-            {row(<>{jk('name')}{jp(': ')}{jn('resgen')}{jp(',')}</>, L3)}
-            {row(<>{jk('description')}{jp(': ')}{jv('AI résumé generator — paste a job description, get your content rewritten and tailored for the specific role.')}{jp(',')}</>, L3)}
-            {row(<>{jk('link')}{jp(': ')}<a className='syn-link' rel='noopener noreferrer' target='_blank' href='https://github.com/AroniasPrenovost/resgen'>"github.com/AroniasPrenovost/resgen"</a></>, L3)}
+            {row(<>{jk('name')}{jp(': ')}{jn('ResumAI')}{jp(',')}</>, L3)}
+            {row(<>{jk('description')}{jp(': ')}{jv('Shipped AI résumé generator with a dynamic blog. Paste a job description — your résumé gets rewritten and tailored for the specific role.')}{jp(',')}</>, L3)}
+            {row(<>{jk('link')}{jp(': ')}<a className='syn-link' rel='noopener noreferrer' target='_blank' href='https://resumai.services'>"resumai.services"</a></>, L3)}
             {row(jp('}'), L2)}
             {row(jp('],'), L1)}
           </>
