@@ -224,51 +224,28 @@ a.nav-item {
     background-color: $editor-bg;
     border-radius: 0 0 4px 4px;
     box-shadow: 0 50px 100px rgba(50,50,93,.15),0 15px 35px rgba(50,50,93,.2),0 5px 15px rgba(0,0,0,.12);
+    padding-top: 24px;
     padding-bottom: 25px;
     counter-reset: line-count;
-    // Minimize animation
     max-height: 3000px;
     overflow: hidden;
     opacity: 1;
-    transition: max-height 0.4s ease, opacity 0.25s ease, padding-bottom 0.4s ease;
+    transition: max-height 0.4s ease, opacity 0.25s ease, padding-top 0.4s ease, padding-bottom 0.4s ease;
 
     &.terminal-window--minimized {
       max-height: 0;
       opacity: 0;
+      padding-top: 0;
       padding-bottom: 0;
     }
 
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-      margin-top: 0;
-
-      li {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-
-      li:nth-child(n+2) {
-        margin-left: 12px;
-      }
-
-      li:nth-last-child(1) {
-        margin-left: 0px;
-      }
-    }
-
-    .statement {
+    .json-line {
       counter-increment: line-count;
       position: relative;
-      margin-bottom: 25px;
-      margin-right: 35px;
       padding-left: 52px;
+      margin-right: 20px;
       line-height: 24px;
-
-      &:nth-child(1) {
-        padding-top: 35px;
-      }
+      color: $syn-base;
 
       &::before {
         content: counter(line-count);
@@ -282,27 +259,15 @@ a.nav-item {
         font-size: 0.85em;
         line-height: 24px;
         user-select: none;
-        padding-top: 1px;
       }
 
-      &:nth-child(1)::before {
-        top: 35px;
-      }
+      .syn-key   { color: $syn-key; }
+      .syn-str   { color: $syn-str; }
+      .syn-punct { color: $syn-punct; }
 
-      .input-statement {
-        color: $syn-key;
-      }
-
-      .return-statement {
-        color: $syn-str;
-      }
-
-      a {
+      a, .syn-link {
         color: $syn-cy;
-
-        &:hover {
-          color: $syn-str;
-        }
+        &:hover { color: $syn-str; }
       }
     }
   }
